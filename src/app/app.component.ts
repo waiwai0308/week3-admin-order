@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  adminTag = '1';
+  adminTag = 1;
+
+  changeTag(num){
+    this.adminTag = num;
+  }
 }

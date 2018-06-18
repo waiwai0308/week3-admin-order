@@ -7,14 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100">
-                <li class="nav-item" [ngClass]="{'active' : adminTag == 1}" (click)="adminTag = 1">
+                <li class="nav-item" [ngClass]="{'active' : adminTag == 1}" (click)="changeTag(1)">
                     <a class="nav-link" href="#">HOME</a>
                 </li>
-                <li class="nav-item" [ngClass]="{'active' : adminTag == 2}">
-                    <a class="nav-link" href="#" (click)="adminTag = 2">ORDERS</a>
+                <li class="nav-item" [ngClass]="{'active' : adminTag == 2}" (click)="changeTag(2)">
+                    <a class="nav-link" href="#">ORDERS</a>
                 </li>
-                <li class="nav-item" [ngClass]="{'active' : adminTag == 3}">
-                    <a class="nav-link" href="#" (click)="adminTag = 3">PRODUCT</a>
+                <li class="nav-item" [ngClass]="{'active' : adminTag == 3}" (click)="changeTag(3)">
+                    <a class="nav-link" href="#">PRODUCT</a>
                 </li>
                 <li class="nav-item ml-auto">
                     <a class="nav-link text-white" href="#">ADMIN</a>
