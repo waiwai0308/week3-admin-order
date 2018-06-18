@@ -1,21 +1,226 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+    <div class="container">
+        <a class="navbar-brand" href="#">ShopMoment</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ORDERS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">PRODUCT</a>
+                </li>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link text-white" href="#">ADMIN</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<router-outlet></router-outlet>
+<section class="admin-index my-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-2 d-flex">
+                <h2>OVERVIEW</h2>
+                <div class="status ml-auto d-flex align-items-center">
+                    <div class="show-data">
+                        <span class="text-muted">2018/06/06</span>
+                        <i class="fas fa-caret-right mx-2"></i>
+                        <span class="text-muted">2018/07/06</span>
+                    </div>
+                    <div class="show-week ml-3">
+                        <span class="text-muted">Weekly</span>
+                        <i class="fas fa-caret-down ml-2"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="statist-box bg-white p-4 d-flex flex-column justify-content-center align-items-center box-shadow">
+                    <div class="statist-title d-flex justify-content-center align-items-center">
+                        <i class="fas fa-hand-holding-usd fa-lg mr-3"></i>
+                        <span>TOTAL REVENUE</span>
+                    </div>
+                    <div class="statist-count h2 text-success mt-3">
+                        <strong>57,360</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="statist-box bg-white p-4 d-flex flex-column justify-content-center align-items-center box-shadow">
+                    <div class="statist-title d-flex justify-content-center align-items-center">
+                        <i class="fas fa-boxes fa-lg mr-3"></i>
+                        <span>TOTAL COST</span>
+                    </div>
+                    <div class="statist-count h2 text-danger mt-3">
+                        <strong>12,260</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="statist-box bg-white p-4 d-flex flex-column justify-content-center align-items-center box-shadow">
+                    <div class="statist-title d-flex justify-content-center align-items-center">
+                        <i class="fas fa-money-check-alt fa-lg mr-3"></i>
+                        <span>NET INCOME</span>
+                    </div>
+                    <div class="statist-count h2 text-info mt-3">
+                        <strong>41,880</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="activity p-4 bg-white box-shadow">
+                    <h4>Activity</h4>
+                    <img src="../assets/activity.png" width="100%" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-lg-6">
+                <div class="website p-4 bg-white box-shadow">
+                    <h4>Transaction Website</h4>
+                    <div class="website-list py-4 d-flex">
+                        <div class="list-title d-flex align-items-center">
+                            <i class="fab fa-facebook fa-2x"></i>
+                            <span class="text-muted ml-3">Facebook.com</span>
+                        </div>
+                        <div class="list-info ml-auto d-flex align-items-center">
+                            <div class="info-total">
+                                45,836
+                            </div>
+                            <div class="info-percent ml-2 text-success">
+                                <i class="fas fa-arrow-up mr-2"></i>
+                                <span>30%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="website-list py-4 d-flex">
+                        <div class="list-title d-flex align-items-center">
+                            <i class="fab fa-google fa-2x"></i>
+                            <span class="text-muted ml-3">Gogole.com</span>
+                        </div>
+                        <div class="list-info ml-auto d-flex align-items-center">
+                            <div class="info-total">
+                                2,489
+                            </div>
+                            <div class="info-percent ml-2 text-danger">
+                                <i class="fas fa-arrow-down mr-2"></i>
+                                <span>10%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="website-list py-4 d-flex">
+                        <div class="list-title d-flex align-items-center">
+                            <i class="fab fa-wordpress fa-2x"></i>
+                            <span class="text-muted ml-3">Wordpress.com</span>
+                        </div>
+                        <div class="list-info ml-auto d-flex align-items-center">
+                            <div class="info-total">
+                                1,051
+                            </div>
+                            <div class="info-percent ml-2 text-danger">
+                                <i class="fas fa-arrow-down mr-2"></i>
+                                <span>30%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="website-list py-4 d-flex">
+                        <div class="list-title d-flex align-items-center">
+                            <i class="fab fa-youtube-square fa-2x"></i>
+                            <span class="text-muted ml-3">Youtube.com</span>
+                        </div>
+                        <div class="list-info ml-auto d-flex align-items-center">
+                            <div class="info-total">
+                                8,675
+                            </div>
+                            <div class="info-percent ml-2 text-danger">
+                                <i class="fas fa-arrow-up mr-2"></i>
+                                <span>10%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="latest-order p-4 bg-white box-shadow">
+                    <h4>Latest Order</h4>
+                    <div class="order-list py-2 d-flex">
+                        <div class="list-img">
+                            <img src="https://picsum.photos/100/100" alt="" srcset="">
+                        </div>
+                        <div class="list-info w-100 d-flex justify-content-between align-items-center">
+                            <div class="info-detail ml-3">
+                                <div class="item-name py-2">Vintage T-shirt</div>
+                                <div class="item-time">
+                                    <i class="fas fa-clock mr-3"></i>
+                                    <span>2018/6/13 13:42</span>
+                                </div>
+                                <div class="item-purchaser">
+                                    <i class="fas fa-user-circle mr-3"></i>
+                                    <span>Belle Willis</span>
+                                </div>
+                            </div>
+                            <div class="info-total text-right d-flex flex-column mt-auto">
+                                <span class="h6 mb-0">Total</span>
+                                <span class="h5 mb-0">3200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-list py-2 d-flex">
+                        <div class="list-img">
+                            <img src="https://picsum.photos/100/100" alt="" srcset="">
+                        </div>
+                        <div class="list-info w-100 d-flex justify-content-between align-items-center">
+                            <div class="info-detail ml-3">
+                                <div class="item-name py-2">Vintage T-shirt</div>
+                                <div class="item-time">
+                                    <i class="fas fa-clock mr-3"></i>
+                                    <span>2018/6/13 13:42</span>
+                                </div>
+                                <div class="item-purchaser">
+                                    <i class="fas fa-user-circle mr-3"></i>
+                                    <span>Belle Willis</span>
+                                </div>
+                            </div>
+                            <div class="info-total text-right d-flex flex-column mt-auto">
+                                <span class="h6 mb-0">Total</span>
+                                <span class="h5 mb-0">3200</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-list py-2 d-flex">
+                        <div class="list-img">
+                            <img src="https://picsum.photos/100/100" alt="" srcset="">
+                        </div>
+                        <div class="list-info w-100 d-flex justify-content-between align-items-center">
+                            <div class="info-detail ml-3">
+                                <div class="item-name py-2">Vintage T-shirt</div>
+                                <div class="item-time">
+                                    <i class="fas fa-clock mr-3"></i>
+                                    <span>2018/6/13 13:42</span>
+                                </div>
+                                <div class="item-purchaser">
+                                    <i class="fas fa-user-circle mr-3"></i>
+                                    <span>Belle Willis</span>
+                                </div>
+                            </div>
+                            <div class="info-total text-right d-flex flex-column mt-auto">
+                                <span class="h6 mb-0">Total</span>
+                                <span class="h5 mb-0">3200</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
