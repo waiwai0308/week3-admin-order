@@ -62,7 +62,7 @@ $colors: map-merge((
   "gray-dark":  $gray-800
 ), $colors);
 
-$primary:       $indigo !default;
+$primary:       black !default;
 $secondary:     $gray-600 !default;
 $success:       $teal !default;
 $info:          $cyan !default;
