@@ -1,16 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import {animate, state, style, transition, trigger, keyframes} from '@angular/animations';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('flyInOut', [
+      transition('void => *', [
+        animate(500, keyframes([
+          style({opacity: 0}),
+          style({opacity: 1})
+        ]))
+      ])
+    ]),
+    trigger('slideDown', [
+      state('in', style({transform: 'translateY(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateY(100%)'}))
+      ])
+    ])
+  ]
 })
 export class AppComponent {
+
+  constructor() {}
+
   title = 'app';
 
-  adminTag = 1;
+  adminTag = 2;
 
   checked = true;
+
+  additemModal = false;
 
 
   product = [
@@ -76,4 +103,5 @@ export class AppComponent {
       item.checked = true; 
     });
   }
+
 }

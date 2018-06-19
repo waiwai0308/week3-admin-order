@@ -24,7 +24,117 @@
     </div>
 </nav>
 
-<section class="admin-orders" *ngIf="adminTag == 2">
+<section class="add-item" *ngIf="additemModal">
+    <div class="bg-cover d-flex justify-content-center align-items-center" [@flyInOut]>
+        <div class="item-modal">
+            <div class="item-modal-title d-flex align-items-center px-3">
+                <span class="h4 m-0">ADD NEW PRODUCT</span>
+                <i class="fas fa-times fa-2x ml-auto" (click)="additemModal = false;"></i>
+            </div>
+            <div class="item-modal-content bg-white">
+                <div class="container">
+                    <div class="row py-3">
+                        <div class="col-12 col-lg-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="box d-flex align-items-center justify-content-center">
+                                        <input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-5" data-multiple-caption="{count} files selected"
+                                            multiple="">
+                                        <label for="file-5">
+                                            <i class="fas fa-cloud-upload-alt d-block text-center"></i>
+                                            <span class=" text-center">Choose a file…</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 py-3">
+                                    <div class="d-flex justify-content-between">
+                                        <img src="https://picsum.photos/142/142" alt="" srcset="">
+                                        <img src="https://picsum.photos/142/142" alt="" srcset="">
+                                        <img src="https://picsum.photos/142/142" alt="" srcset="">
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <img src="https://picsum.photos/142/142" alt="" srcset="">
+                                        <img src="https://picsum.photos/142/142" alt="" srcset="">
+                                        <img src="https://picsum.photos/142/142" alt="" srcset="">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Product Discription</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Price</label>
+                                    <div class="d-flex">
+                                        <div class="input-group mr-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Original</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Discount</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Specification</label>
+                                    <div class="d-flex">
+                                        <div class="input-group mr-2">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Size</label>
+                                            </div>
+                                            <select class="custom-select" id="inputGroupSelect01">
+                                                <option selected></option>
+                                                <option value="L">L</option>
+                                                <option value="M">M</option>
+                                                <option value="S">S</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Color</label>
+                                            </div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Inventory</label>
+                                            </div>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-dark mt-3 w-100">ADD NEW SPECIFICATION
+                                        <i class="fas fa-plus ml-3"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div>
+                                <button></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="admin-orders" *ngIf="adminTag == 2" [@flyInOut]>
     <div class="container">
         <div class="row">
             <div class="col-12 py-3 d-md-flex align-items-center">
@@ -46,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="ml-auto d-flex align-items-center">
+                <div class="ml-auto d-flex align-items-center" (click)="additemModal = true;">
                     <button class="btn btn-dark">ADD NEW PRODUCT
                         <i class="fas fa-plus"></i>
                     </button>
@@ -110,7 +220,7 @@
     </div>
 </section>
 
-<section class="admin-index my-3" *ngIf="adminTag == 1">
+<section class="admin-index my-3" *ngIf="adminTag == 1" [@flyInOut]>
     <div class="container">
         <div class="row">
             <div class="col-12 py-2 d-md-flex">
