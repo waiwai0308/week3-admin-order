@@ -24,6 +24,175 @@
     </div>
 </nav>
 
+
+<section class="admin-orders" *ngIf="adminTag == 3" [@flyInOut]>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-3 d-md-flex align-items-center">
+                <label class="checkbox ml-3" (click)="clickAllCheckbox('order')">
+                    <input type="checkbox">
+                    <span class="checkmark border border-dark"></span>
+                </label>
+                <i class="fas fa-caret-down ml-2"></i>
+
+                <div ngbDropdown class="d-inline-block">
+                    <i class="fas fa-tags ml-2 mt-2" placement="bottom" ngbTooltip="Change Status" id="dropdownBasic1" ngbDropdownToggle></i>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button class="dropdown-item disabled">Change Status to…</button>
+                        <button class="dropdown-item">Paid</button>
+                        <button class="dropdown-item">Unpaid</button>
+                        <button class="dropdown-item">Shipping</button>
+                        <button class="dropdown-item">Done</button>
+                    </div>
+                </div>
+
+                <div class="ml-auto d-flex align-items-center">
+
+                </div>
+            </div>
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead class="bg-white">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col" width="120px">Customer</th>
+                            <th scope="col" width="220px">Product List</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Add to Cart</th>
+                            <th scope="col">Check-out</th>
+                            <th scope="col">Address</th>
+                            <th scope="col" width="160px">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of order" [ngClass]="{'text-muted':item.status == 'done','btn-info':item.status == 'unpaid'}">
+                            <td class="px-0">
+                                <label class="checkbox ml-3">
+                                    <input type="checkbox" [checked]="item.checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <span class="ml-2">{{item.name}}</span>
+                            </td>
+                            <td>
+                                <div class="item-box border-bottom border-white" *ngFor="let orderitem of item.order">
+                                    <div class="item-name">{{orderitem.name}}</div>
+                                    <div class="item-info d-flex justify-content-between">
+                                        <span>{{orderitem.price}}</span>
+                                        <span>{{orderitem.num}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{item.total}}</td>
+                            <td>{{item.addtocart}}</td>
+                            <td>{{item.checkout}}</td>
+                            <td>{{item.address}}</td>
+                            <td class="align-bottom">
+                                <div ngbDropdown class="d-inline-block">
+                                    <a class="btn text-white" [ngClass]="{'btn-success':item.status == 'paid','btn-secondary':item.status == 'unpaid','btn-warning':item.status == 'shipping','btn-info':item.status == 'done'}"
+                                        placement="bottom" id="dropdownBasic1" ngbDropdownToggle>
+                                        {{item.status}}
+                                    </a>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <button class="dropdown-item" [disabled]="item.status == 'paid'" (click)="item.status = 'paid';">Paid</button>
+                                        <button class="dropdown-item" [disabled]="item.status == 'unpaid'" (click)="item.status = 'unpaid';">Unpaid</button>
+                                        <button class="dropdown-item" [disabled]="item.status == 'shipping'" (click)="item.status = 'shipping';">Shipping</button>
+                                        <button class="dropdown-item" [disabled]="item.status == 'done'" (click)="item.status = 'done';">Done</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="admin-orders" *ngIf="adminTag == 2" [@flyInOut]>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-3 d-md-flex align-items-center">
+                <label class="checkbox ml-3" (click)="clickAllCheckbox()">
+                    <input type="checkbox">
+                    <span class="checkmark border border-dark"></span>
+                </label>
+                <i class="fas fa-caret-down ml-2"></i>
+
+                <div ngbDropdown class="d-inline-block">
+                    <i class="fas fa-tags ml-2 mt-2" placement="bottom" ngbTooltip="Change Status" id="dropdownBasic1" ngbDropdownToggle></i>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button class="dropdown-item disabled">Change Status to…</button>
+                        <button class="dropdown-item">PUBLISHED</button>
+                        <button class="dropdown-item">UNPUBLISHED</button>
+                    </div>
+                </div>
+
+                <div class="ml-auto d-flex align-items-center" (click)="additemModal = true;">
+                    <button class="btn btn-dark">ADD NEW PRODUCT
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead class="bg-white">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Original</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Inventory</th>
+                            <th scope="col" width="160px">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of product" [ngClass]="item.status?'':'text-muted'">
+                            <td class="px-0">
+                                <label class="checkbox ml-3">
+                                    <input type="checkbox" [checked]="item.checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <img [src]="item.img" alt="" srcset="">
+                                <span class="ml-2">{{item.name}}</span>
+                            </td>
+                            <td>{{item.original}}</td>
+                            <td>{{item.discount}}</td>
+                            <td colspan="3">
+                                <div class="border-bottom border-white d-flex py-1" *ngFor="let specification of item.specification">
+                                    <div class="size mr-3">{{specification.size}}</div>
+                                    <div class="size-info w-100 d-flex flex-column">
+                                        <div class="p-0 color d-flex" *ngFor="let color of specification.item">
+                                            <span class="w-50 pl-3">{{color.color}}</span>
+                                            <span class="w-50 pr-3 text-right">{{color.limit}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-bottom">
+                                <div ngbDropdown class="d-inline-block">
+                                    <a class="btn text-white" [ngClass]="item.status?'btn-success':'btn-secondary'" placement="bottom" id="dropdownBasic1" ngbDropdownToggle>
+                                        {{item.status?'PUBLISHED':'UNPUBLISHED'}}
+                                    </a>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <button class="dropdown-item" [disabled]="item.status" (click)="item.status = !item.status;">PUBLISHED</button>
+                                        <button class="dropdown-item" [disabled]="!item.status" (click)="item.status = !item.status;">UNPUBLISHED</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="add-item" *ngIf="additemModal">
     <div class="bg-cover d-flex justify-content-center align-items-center" [@flyInOut]>
         <div class="item-modal">
@@ -90,7 +259,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Specification</label>
-                                    <div class="d-flex">
+                                    <div class="d-flex mb-2" *ngFor="let item of specification">
                                         <div class="input-group mr-2">
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text" for="inputGroupSelect01">Size</label>
@@ -116,105 +285,20 @@
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-dark mt-3 w-100">ADD NEW SPECIFICATION
+                                    <span class="btn btn-dark mt-3 w-100" (click)="addMoreSpecification()">ADD NEW SPECIFICATION
                                         <i class="fas fa-plus ml-3"></i>
-                                    </button>
+                                    </span>
                                 </div>
                             </form>
 
-                            <div>
-                                <button></button>
+                            <div class="text-right">
+                                <button class="btn btn-link mr-3">SAVE DRAFT</button>
+                                <button class="btn btn-dark">PUBLISH</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="admin-orders" *ngIf="adminTag == 2" [@flyInOut]>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 py-3 d-md-flex align-items-center">
-                <label class="checkbox ml-3" (click)="clickAllCheckbox()">
-                    <input type="checkbox">
-                    <span class="checkmark border border-dark"></span>
-                </label>
-                <i class="fas fa-caret-down ml-2"></i>
-
-
-                <div ngbDropdown class="d-inline-block">
-                    <i class="fas fa-tags ml-2" placement="bottom" ngbTooltip="Change Status" id="dropdownBasic1" ngbDropdownToggle></i>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button class="dropdown-item disabled">Change Status to…</button>
-                        <button class="dropdown-item">Paid</button>
-                        <button class="dropdown-item">Unpaid</button>
-                        <button class="dropdown-item">Shipping</button>
-                        <button class="dropdown-item">Done</button>
-                    </div>
-                </div>
-
-                <div class="ml-auto d-flex align-items-center" (click)="additemModal = true;">
-                    <button class="btn btn-dark">ADD NEW PRODUCT
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-12">
-                <table class="table table-striped">
-                    <thead class="bg-white">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Original</th>
-                            <th scope="col">Discount</th>
-                            <th scope="col">Size</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Inventory</th>
-                            <th scope="col" width="160px">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of product">
-                            <td class="px-0">
-                                <label class="checkbox ml-3">
-                                    <input type="checkbox" [checked]="item.checked">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </td>
-                            <td>
-                                <img [src]="item.img" alt="" srcset="">
-                                <span class="ml-2">{{item.name}}</span>
-                            </td>
-                            <td>{{item.original}}</td>
-                            <td>{{item.discount}}</td>
-                            <td colspan="3">
-                                <div class="border-bottom border-white d-flex py-1" *ngFor="let specification of item.specification">
-                                    <div class="size mr-3">{{specification.size}}</div>
-                                    <div class="size-info w-100 d-flex flex-column">
-                                        <div class="p-0 color d-flex" *ngFor="let color of specification.item">
-                                            <span class="w-50 pl-3">{{color.color}}</span>
-                                            <span class="w-50 pr-3 text-right">{{color.limit}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-bottom">
-                                <div ngbDropdown class="d-inline-block">
-                                    <a class="btn text-white" [ngClass]="item.status?'btn-success':'btn-secondary'" placement="bottom" id="dropdownBasic1" ngbDropdownToggle>
-                                        {{item.status?'PUBLISHED':'UNPUBLISHED'}}
-                                    </a>
-                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                        <button class="dropdown-item" [disabled]="item.status">PUBLISHED</button>
-                                        <button class="dropdown-item" [disabled]="!item.status">UNPUBLISHED</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
@@ -275,7 +359,7 @@
             <div class="col-12">
                 <div class="activity p-4 bg-white box-shadow mb-4">
                     <h4>Activity</h4>
-                    <img src="/dist/assets/activity.png" width="100%" alt="" srcset="">
+                    <img src="/week3-admin-order/dist/assets/activity.png" width="100%" alt="" srcset="">
                 </div>
             </div>
         </div>

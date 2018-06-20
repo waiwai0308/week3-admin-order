@@ -33,11 +33,18 @@ export class AppComponent {
 
   title = 'app';
 
-  adminTag = 2;
+  adminTag = 1;
 
   checked = true;
 
   additemModal = false;
+
+  specification = [
+    {
+      size: '',
+      item: {color: '', limit: ''}
+    }
+  ]
 
 
   product = [
@@ -94,14 +101,95 @@ export class AppComponent {
     }
   ]
 
+  order = [
+    {
+      checked: false,
+      name: 'Ian Medina',
+      img: 'https://picsum.photos/50/49',
+      total: '$4,200',
+      addtocart: '2018/06/08 13:39',
+      checkout: '2018/06/08 13:39',
+      address: '386 Windler Drives Apt. 358',
+      status: 'unpaid',
+      order: [
+        {
+          name: 'Vestibulum.',
+          price: '$1,400',
+          num: 1
+        },{
+          name: 'Vestibulum.',
+          price: '$1,400',
+          num: 1
+        }
+      ]
+    },    {
+      checked: false,
+      name: 'Ian Medina',
+      img: 'https://picsum.photos/50/49',
+      total: '$4,200',
+      addtocart: '2018/06/08 13:39',
+      checkout: '2018/06/08 13:39',
+      address: '386 Windler Drives Apt. 358',
+      status: 'paid',
+      order: [
+        {
+          name: 'Vestibulum.',
+          price: '$1,400',
+          num: 1
+        },{
+          name: 'Vestibulum.',
+          price: '$1,400',
+          num: 1
+        }
+      ]
+    },    {
+      checked: false,
+      name: 'Ian Medina',
+      img: 'https://picsum.photos/50/49',
+      total: '$4,200',
+      addtocart: '2018/06/08 13:39',
+      checkout: '2018/06/08 13:39',
+      address: '386 Windler Drives Apt. 358',
+      status: 'done',
+      order: [
+        {
+          name: 'Vestibulum.',
+          price: '$1,400',
+          num: 1
+        },{
+          name: 'Vestibulum.',
+          price: '$1,400',
+          num: 1
+        }
+      ]
+    }
+  ]
+
+  addMoreSpecification(){
+    if(this.specification.length > 5) {
+      return;
+    }
+    this.specification.push({
+      size: '',
+      item: {color: 'Red', limit: ''}
+    });
+  }
+
   changeTag(num) {
     this.adminTag = num;
   }
 
-  clickAllCheckbox() {
-    this.product.forEach((item)=>{
-      item.checked = true; 
-    });
+  clickAllCheckbox(item) {
+    if(item == 'order'){
+      this.order.forEach((item)=>{
+        item.checked = true; 
+      });
+    }else{
+      this.product.forEach((item)=>{
+        item.checked = true; 
+      });
+    }
+
   }
 
 }

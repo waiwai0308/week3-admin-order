@@ -280,3 +280,7 @@ js .inputfile {
 .item-modal{
     max-width: 960px;
 }
+
+i.fa-tags.dropdown-toggle::after{
+    display: none;
+}
